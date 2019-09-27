@@ -1,0 +1,25 @@
+body {
+    /*height: 100%;*/
+    background-image: url('../image/my.jpg');
+    background-size: 100%;
+}
+
+/*.container{*/
+/*    width: 400px;*/
+/*    max-width: 300%;*/
+/*    border: black;*/
+/*}*/
+
+
+.form-login {
+    width: 500px;
+    max-width: 300%;
+    /*height: 750px;*/
+    padding: 25px;
+    margin: 0 auto;
+    margin-top: 150px;
+    border-style: solid;
+    border-color: aliceblue;
+    border-width: 3px;
+}
+

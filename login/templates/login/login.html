@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- 上述meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'login/css/login.css' %}" rel="stylesheet"/>
+    <link href="{% static 'layui/css/modules/layer/default/layer.css' %}" rel="stylesheet"/>
+    <title>登录</title>
+</head>
+<body>
+<div class="container">
+    <div class="col">
+        <form class="form-login" action="/login/" method="post">
+            {% csrf_token %}
+            {% if message %}
+                <div class="alert alert-warning">{{ message }}</div>
+            {% endif %}
+            {% if login_form.captcha.errors %}
+                    <div class="alert alert-warning">{{ login_form.captcha.errors }}</div>
+            {% endif %}
+            <h3 class="text-center">欢迎登录</h3>
+            <br>
+            {#                  <div class="form-group">#}
+            {#                    <label for="id_username"><b>用户名：</b></label>#}
+            {#                    <input type="text" name='username' class="form-control" id="id_username" placeholder="Username" autofocus required>#}
+            {#                  </div>#}
+            {#                  <div class="form-group">#}
+            {#                    <label for="id_password"><b>密码：</b></label>#}
+            {#                    <input type="password" name='password' class="form-control" id="id_password" placeholder="Password" required>#}
+            {#                  </div>#}
+            <div class="form-group">
+                {{ login_form.username.label_tag }}
+                {{ login_form.username }}
+            </div>
+            <div class="form-group">
+                {{ login_form.password.label_tag }}
+                {{ login_form.password }}
+            </div>
+            <div class="form-group">
+                {{ login_form.captcha.label_tag }}
+                {{ login_form.captcha }}
+            </div>
+            <br>
+            <div>
+                <a href="/register/" class="text-success href">
+                    <ins><b>新用户注册</b></ins>
+                </a>
+                <button type="submit" class="btn btn-primary float-right"><b>登录</b></button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+{#    以下三者的引用顺序是固定的#}
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'layui/lay/modules/layer.js' %}"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
